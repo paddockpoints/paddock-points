@@ -8,12 +8,17 @@
 <meta property="og:title" content="Paddock Points">
 <meta property="og:description" content="Every F1 driver's penalty points, expiry dates and ban risk, plus the Road to F1 for F2 and F3 drivers.">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://paddockpoints.co.uk/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700;800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a href="index.html" class="logo">Paddock Points</a>
+    <span class="links"><a href="index.html" aria-current="page">Tracker</a><a href="guides.html">Guides</a><a href="about.html">About</a></span>
+  </nav>
   <header class="brand">
     <span class="kicker">Super licence tracker</span>
     <h1>Paddock Points</h1>
@@ -71,10 +76,12 @@
       <input type="email" name="email" id="bd-email" placeholder="you@example.com" required>
       <button type="submit">Subscribe</button>
     </form>
+    <p class="fine">We only use your email to send the newsletter. Unsubscribe any time. See our <a href="privacy.html">privacy policy</a>.</p>
   </section>
 
   <footer>
-    Paddock Points is an independent fan project. It is not affiliated with, endorsed by or connected to Formula 1, the FIA or any team. Data compiled from public stewards' decisions and championship results; check official sources for anything that matters.
+    <p class="flinks"><a href="about.html">About</a><a href="guides.html">Guides</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></p>
+    <p>Paddock Points is an independent fan project. It is not affiliated with, endorsed by or connected to Formula 1, the FIA or any team. Data compiled from public stewards' decisions and championship results; check official sources for anything that matters.</p>
   </footer>
 </div>
 <script src="data.js"></script>
