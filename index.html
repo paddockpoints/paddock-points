@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paddock Points – F1 Super Licence Penalty Points Tracker</title>
+<meta name="description" content="Live super licence penalty points for every 2026 F1 driver, when each point expires, how close they are to a race ban, and which F2 and F3 drivers are on course for a super licence.">
+<meta property="og:title" content="Paddock Points">
+<meta property="og:description" content="Every F1 driver's penalty points, expiry dates and ban risk, plus the Road to F1 for F2 and F3 drivers.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700;800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="brand">
+    <span class="kicker">Super licence tracker</span>
+    <h1>Paddock Points</h1>
+    <span class="updated" id="updated"></span>
+  </header>
+
+  <nav class="tabs" aria-label="Views">
+    <a href="#penalties" data-tab="penalties">Penalty points</a>
+    <a href="#road-to-f1" data-tab="road-to-f1">Road to F1</a>
+  </nav>
+
+  <section class="view" id="v-road" hidden>
+    <p class="seriesnote">A new F1 driver needs 40 super licence eligibility points, earned by championship finishing position across the current and previous two seasons. This tracks the 2026 support-series drivers and what their position is worth.</p>
+    <div class="seg" role="group" aria-label="Series">
+      <button type="button" data-s="F2" aria-pressed="true">Formula 2</button>
+      <button type="button" data-s="F3" aria-pressed="false">Formula 3</button>
+    </div>
+    <p class="seriesnote" id="seriesStatus"></p>
+    <div class="summary" id="rsummary"></div>
+    <div class="list" id="rlist"></div>
+    <p class="note">Eligibility points by finishing position. F2: 40, 40, 40, 30, 20, 10, 8, 6, 4, 3. F3: 30, 25, 20, 15, 12, 9, 7, 5, 3, 2. Banked points from earlier seasons are shown only where confirmed, so some drivers will hold more than shown here. Up to 10 extra points can come from F1 practice running. Sources: <a href="https://www.racingsheet.com/posts/f1-super-license-points" target="_blank" rel="noopener">2026 points table</a>, <a href="https://www.formule1stand.nl/en/formula-2-standings/" target="_blank" rel="noopener">F2 standings</a>, <a href="https://www.driverdb.com/championships/fia-formula-3/2026/standings" target="_blank" rel="noopener">F3 standings</a>, <a href="https://grandepremio.com/en/f1/ferrari-promotes-beganovic-to-f1-reserve-as-camara-takes-haas-seat-for-2027/" target="_blank" rel="noopener">2027 moves</a>.</p>
+  </section>
+
+  <section class="view" id="v-pen">
+  <p class="seriesnote">FIA penalty points on every 2026 F1 driver's licence. Points drop off 12 months after they were issued; 12 live points means a one-race ban.</p>
+  <div class="controls">
+    <div class="field">
+      <label for="asof">Balance as of</label>
+      <input type="date" id="asof">
+    </div>
+    <div class="field">
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option value="pts">Most points</option>
+        <option value="next">Next to drop</option>
+        <option value="name">Driver name</option>
+        <option value="team">Team</option>
+      </select>
+    </div>
+    <button class="reset" id="today" type="button">Back to today</button>
+  </div>
+
+  <div class="summary" id="summary"></div>
+  <div class="list" id="list"></div>
+
+  <p class="note">Dates are when each point expires. Pick a future date above to see each driver's balance once older points fall away. Sources: <a href="https://www.planetf1.com/features/f1-penalty-points-drivers" target="_blank" rel="noopener">PlanetF1 penalty points tracker</a>, <a href="https://www.planetf1.com/news/fia-verstappen-lawson-grid-penalty-mexico-gp" target="_blank" rel="noopener">Mexico FP2 stewards' decision</a>.</p>
+  </section>
+
+  <section class="signup" aria-labelledby="su-h">
+    <h2 id="su-h">Get the race-weekend licence update</h2>
+    <p>One short email after each Grand Prix: new penalty points, who is closest to a ban, and which junior drivers moved closer to 40 points.</p>
+    <!-- Replace YOUR-USERNAME with your Buttondown username (see README step 4) -->
+    <form action="https://buttondown.com/api/emails/embed-subscribe/YOUR-USERNAME" method="post" target="_blank">
+      <label for="bd-email" class="sr">Email address</label>
+      <input type="email" name="email" id="bd-email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    Paddock Points is an independent fan project. It is not affiliated with, endorsed by or connected to Formula 1, the FIA or any team. Data compiled from public stewards' decisions and championship results; check official sources for anything that matters.
+  </footer>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
