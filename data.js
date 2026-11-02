@@ -9,18 +9,21 @@
    3. Road to F1: update the championship points (3rd value) and keep
       rows in championship order. Licence points are worked out for you.
    ============================================================ */
-const UPDATED="2026-10-31";
-const UPDATED_NOTE="After Mexico City GP FP2";
+const UPDATED="2026-11-02";
+const UPDATED_NOTE="After Mexico City GP";
 
 const TEAMS={ "McLaren":"#ff8000","Mercedes":"#27f4d2","Red Bull":"#3671c6","Ferrari":"#e8002d","Williams":"#64c4ff",
   "Racing Bulls":"#6692ff","Aston Martin":"#229971","Haas":"#b6babd","Audi":"#9b0000","Alpine":"#0093cc","Cadillac":"#c9a227"};
 const DRIVERS=[
  {n:"Franco Colapinto",t:"Alpine",o:[
    {p:1,ev:"Barcelona-Catalunya GP 2026",why:"Failing to slow for yellow flags",exp:"2027-06-14"},
-   {p:2,ev:"Dutch GP 2026",why:"Overtaking under double yellow flags",exp:"2027-08-23"}]},
+   {p:2,ev:"Dutch GP 2026",why:"Overtaking under double yellow flags",exp:"2027-08-23"},
+   {p:1,ev:"Dutch GP 2026",why:"Second yellow flag infringement",exp:"2027-08-23"},
+   {p:1,ev:"Mexico City GP 2026",why:"Failing to slow for single yellow flags",exp:"2027-11-01"}]},
  {n:"Liam Lawson",t:"Racing Bulls",o:[
    {p:1,ev:"São Paulo GP 2025 Sprint",why:"Causing a collision with Bearman",exp:"2026-11-09"},
    {p:1,ev:"Abu Dhabi GP 2025",why:"Erratic driving while defending",exp:"2026-12-07"},
+   {p:1,ev:"Dutch GP 2026",why:"Yellow flag infringement",exp:"2027-08-23"},
    {p:1,ev:"Mexico City GP 2026 (FP2)",why:"Unacceptable driving, contact with Verstappen",exp:"2027-10-30"}]},
  {n:"Oliver Bearman",t:"Haas",o:[
    {p:1,ev:"São Paulo GP 2025",why:"Potentially dangerous driving",exp:"2026-11-09"},
@@ -44,14 +47,17 @@ const DRIVERS=[
  {n:"Fernando Alonso",t:"Aston Martin",o:[]},
  {n:"Valtteri Bottas",t:"Cadillac",o:[]},
  {n:"Sergio Pérez",t:"Cadillac",o:[]},
- {n:"Pierre Gasly",t:"Alpine",o:[]},
+ {n:"Pierre Gasly",t:"Alpine",o:[
+   {p:2,ev:"Mexico City GP 2026",why:"Failing to slow for double yellow flags",exp:"2027-11-01"}]},
  {n:"Isack Hadjar",t:"Red Bull",o:[]},
  {n:"Nico Hülkenberg",t:"Audi",o:[]},
  {n:"Charles Leclerc",t:"Ferrari",o:[]},
  {n:"Lando Norris",t:"McLaren",o:[]},
  {n:"Esteban Ocon",t:"Haas",o:[]},
  {n:"George Russell",t:"Mercedes",o:[]},
- {n:"Carlos Sainz",t:"Williams",o:[]}
+ {n:"Carlos Sainz",t:"Williams",o:[
+   {p:2,ev:"Azerbaijan GP 2026 (qualifying)",why:"Failing to slow for yellow flags",exp:"2027-09-25"}]},
+ {n:"Ryo Hirakawa",t:"Haas",o:[]}
 ];
 
 const SL={F2:[40,40,40,30,20,10,8,6,4,3],F3:[30,25,20,15,12,9,7,5,3,2]};
