@@ -93,8 +93,17 @@ function route(){
 window.addEventListener("hashchange",route);
 renderRoad(); route();
 
+/* Only today onwards: past dates would be missing points that have since expired. */
+const plusYear=iso=>{const d=new Date(iso+"T12:00:00");d.setFullYear(d.getFullYear()+1);return d.toISOString().slice(0,10)};
 $("#asof").value=todayISO();
-$("#asof").addEventListener("change",render);
+$("#asof").min=todayISO();
+$("#asof").max=plusYear(todayISO());
+$("#asof").addEventListener("change",()=>{
+  const el=$("#asof");
+  if(!el.value||el.value<el.min) el.value=el.min;
+  if(el.value>el.max) el.value=el.max;
+  render();
+});
 $("#sort").addEventListener("change",render);
 $("#today").addEventListener("click",()=>{$("#asof").value=todayISO();render()});
 render();
