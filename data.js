@@ -9,8 +9,8 @@
    3. Road to F1: update the championship points (3rd value) and keep
       rows in championship order. Licence points are worked out for you.
    ============================================================ */
-const UPDATED="2026-11-02";
-const UPDATED_NOTE="After Mexico City GP";
+const UPDATED="2026-11-09";
+const UPDATED_NOTE="After São Paulo GP";
 
 const TEAMS={ "McLaren":"#ff8000","Mercedes":"#27f4d2","Red Bull":"#3671c6","Ferrari":"#e8002d","Williams":"#64c4ff",
   "Racing Bulls":"#6692ff","Aston Martin":"#229971","Haas":"#b6babd","Audi":"#9b0000","Alpine":"#0093cc","Cadillac":"#c9a227"};
@@ -35,7 +35,8 @@ const DRIVERS=[
  {n:"Oscar Piastri",t:"McLaren",o:[
    {p:2,ev:"São Paulo GP 2025",why:"Causing a collision with Antonelli and Leclerc",exp:"2026-11-09"}]},
  {n:"Alex Albon",t:"Williams",o:[
-   {p:1,ev:"Las Vegas GP 2025",why:"Contact with Hamilton",exp:"2026-11-23"}]},
+   {p:1,ev:"Las Vegas GP 2025",why:"Contact with Hamilton",exp:"2026-11-23"},
+   {p:2,ev:"São Paulo GP 2026",why:"Rejoining the track unsafely, forcing Gasly to brake",exp:"2027-11-08"}]},
  {n:"Kimi Antonelli",t:"Mercedes",o:[
    {p:1,ev:"Hungarian GP 2026 (qualifying)",why:"Not slowing enough under yellow flags",exp:"2027-07-25"}]},
  {n:"Lewis Hamilton",t:"Ferrari",o:[
@@ -57,14 +58,15 @@ const DRIVERS=[
  {n:"George Russell",t:"Mercedes",o:[]},
  {n:"Carlos Sainz",t:"Williams",o:[
    {p:2,ev:"Azerbaijan GP 2026 (qualifying)",why:"Failing to slow for yellow flags",exp:"2027-09-25"}]},
- {n:"Ryo Hirakawa",t:"Haas",o:[]}
+ {n:"Ryo Hirakawa",t:"Haas",o:[]},
+ {n:"Rafael Câmara",t:"Haas",o:[]}
 ];
 
 const SL={F2:[40,40,40,30,20,10,8,6,4,3],F3:[30,25,20,15,12,9,7,5,3,2]};
 const SERIES={
  F2:{status:"2026 season in progress, standings after the Baku double-header. Positions and points are provisional until the Abu Dhabi finale.",
   rows:[
-   ["Rafael Câmara","Invicta Racing",207,0,"Haas F1 seat confirmed for 2027"],
+   ["Rafael Câmara","Invicta Racing",207,0,"F1 debut for Haas at São Paulo GP; Haas seat confirmed for 2027"],
    ["Nikola Tsolov","Campos Racing",200,25,"Banked 25 as 2025 F3 runner-up"],
    ["Alex Dunne","Rodin Motorsport",189,0,""],
    ["Gabriele Minì","MP Motorsport",163,0,""],
