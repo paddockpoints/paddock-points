@@ -62,8 +62,8 @@ Use **Cloudflare Web Analytics** or **GoatCounter**. Both set no cookies, so you
 2. In GitHub, open `data.js`, click the pencil icon, and:
    - Change `UPDATED` to today's date and `UPDATED_NOTE` to the race name.
    - For each new penalty, add one line to that driver's list:
-     `{p:1, ev:"Brazilian GP 2026", why:"Causing a collision", exp:"2027-11-08", src:"https://..."}`
-     Here `exp` is the date one year after the point was given, and `src` links to the stewards' decision or the report you used (leave it out to fall back to the PlanetF1 tracker).
+     `{p:1, ev:"Brazilian GP 2026", why:"Causing a collision", exp:"2027-11-08"}`
+     Here `exp` is the date one year after the point was given.
      If you haven't checked the FIA document yet, add `prov:true`. The site marks the penalty "Provisional" until you remove it.
    - Update the F2 and F3 championship points, keeping each table in championship order.
 3. Click **Commit**. The site updates within about a minute.
