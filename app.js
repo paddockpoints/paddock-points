@@ -39,19 +39,21 @@ function render(){
     const label={clear:"Clear",watch:"Watch",risk:"At risk"}[r.status];
     const nextTxt=r.next?`Next drop <strong>${fmt(r.next)}</strong> (${days(asof,r.next)} days)`:"Clean licence";
     const isOpen=open.has(r.n);
+    const srcLink=x=>{const u=x.src||DEFAULT_SRC.url;const l=x.src?"Source":"Source: "+DEFAULT_SRC.label;
+      return `<a class="src" href="${u}" target="_blank" rel="noopener">${l}</a>`};
     const log=isOpen?`<div class="log">${r.o.length?r.o.slice().sort((a,b)=>a.exp.localeCompare(b.exp)).map(x=>`
-        <div class="off ${x.exp<=asof?"gone":""}"><span class="p">+${x.p}</span><span>${x.ev}<br><span style="color:var(--muted)">${x.why}</span></span><span class="exp">${x.exp<=asof?"Expired":"Expires"}<br>${fmt(x.exp)}</span></div>`).join(""):`<div class="off"><span class="p">0</span><span>No penalty points in the last 12 months</span><span></span></div>`}</div>`:"";
-    return `<button class="row" type="button" data-n="${r.n}" aria-expanded="${isOpen}">
+        <div class="off ${x.exp<=asof?"gone":""}"><span class="p">+${x.p}</span><span>${x.ev}${x.prov?` <span class="pill s-watch">Provisional</span>`:""}<br><span style="color:var(--muted)">${x.why}</span><br>${srcLink(x)}</span><span class="exp">${x.exp<=asof?"Expired":"Expires"}<br>${fmt(x.exp)}</span></div>`).join(""):`<div class="off"><span class="p">0</span><span>No penalty points in the last 12 months</span><span></span></div>`}</div>`:"";
+    const hasProv=r.o.some(x=>x.prov&&x.exp>asof);
+    return `<div class="row"><button class="rowhead" type="button" data-n="${r.n}" aria-expanded="${isOpen}">
       <span class="who"><span class="chip" style="background:${TEAMS[r.t]}"></span><span class="name">${r.n}<span class="team">${r.t}</span></span></span>
       <span class="tally"><span class="pts">${r.pts}</span><span class="of"> / ${BAN}</span></span>
       <span class="meter" aria-label="${r.pts} of ${BAN} points">${cells}</span>
-      <span class="meta"><span class="pill s-${r.status}">${label}</span><span>Balance <strong>${r.bal} pts</strong> to a ban</span><span>${nextTxt}</span></span>
-      ${log}
-    </button>`;
+      <span class="meta"><span class="pill s-${r.status}">${label}</span><span>Balance <strong>${r.bal} pts</strong> to a ban</span><span>${nextTxt}</span>${hasProv?`<span class="pill s-watch">Includes provisional</span>`:""}</span>
+    </button>${log}</div>`;
   }).join("");
 }
 $("#list").addEventListener("click",e=>{
-  const b=e.target.closest(".row"); if(!b)return;
+  const b=e.target.closest(".rowhead"); if(!b)return;
   const n=b.dataset.n; open.has(n)?open.delete(n):open.add(n); render();
 });
 /* ---------- Road to F1 ---------- */

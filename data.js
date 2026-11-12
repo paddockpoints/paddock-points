@@ -2,8 +2,13 @@
    SITE DATA — this is the only file you edit after each race.
    1. Change UPDATED to today's date.
    2. Penalty points: add a line to the driver's "o" list:
-        {p:POINTS, ev:"EVENT", why:"REASON", exp:"YYYY-MM-DD"}
+        {p:POINTS, ev:"EVENT", why:"REASON", exp:"YYYY-MM-DD", src:"LINK"}
       exp = the date the point expires (12 months after it was given).
+      src = link to the stewards' decision or report it came from (optional;
+            without it the site links to the PlanetF1 tracker in DEFAULT_SRC).
+      Add prov:true while a penalty is not yet confirmed against the FIA
+      stewards' decision. It shows as "Provisional" on the site. Remove it
+      once you have checked the FIA document.
       Expired points drop off the site automatically — never delete them by hand
       until you want to tidy up.
    3. Road to F1: update the championship points (3rd value) and keep
@@ -11,6 +16,7 @@
    ============================================================ */
 const UPDATED="2026-11-09";
 const UPDATED_NOTE="After São Paulo GP";
+const DEFAULT_SRC={label:"PlanetF1 tracker",url:"https://www.planetf1.com/features/f1-penalty-points-drivers"};
 
 const TEAMS={ "McLaren":"#ff8000","Mercedes":"#27f4d2","Red Bull":"#3671c6","Ferrari":"#e8002d","Williams":"#64c4ff",
   "Racing Bulls":"#6692ff","Aston Martin":"#229971","Haas":"#b6babd","Audi":"#9b0000","Alpine":"#0093cc","Cadillac":"#c9a227"};
@@ -24,7 +30,7 @@ const DRIVERS=[
    {p:1,ev:"São Paulo GP 2025 Sprint",why:"Causing a collision with Bearman",exp:"2026-11-09"},
    {p:1,ev:"Abu Dhabi GP 2025",why:"Erratic driving while defending",exp:"2026-12-07"},
    {p:1,ev:"Dutch GP 2026",why:"Yellow flag infringement",exp:"2027-08-23"},
-   {p:1,ev:"Mexico City GP 2026 (FP2)",why:"Unacceptable driving, contact with Verstappen",exp:"2027-10-30"}]},
+   {p:1,ev:"Mexico City GP 2026 (FP2)",why:"Unacceptable driving, contact with Verstappen",exp:"2027-10-30",src:"https://www.planetf1.com/news/fia-verstappen-lawson-grid-penalty-mexico-gp"}]},
  {n:"Oliver Bearman",t:"Haas",o:[
    {p:1,ev:"São Paulo GP 2025",why:"Potentially dangerous driving",exp:"2026-11-09"},
    {p:1,ev:"Abu Dhabi GP 2025",why:"More than one change of direction defending",exp:"2026-12-07"}]},
@@ -36,7 +42,7 @@ const DRIVERS=[
    {p:2,ev:"São Paulo GP 2025",why:"Causing a collision with Antonelli and Leclerc",exp:"2026-11-09"}]},
  {n:"Alex Albon",t:"Williams",o:[
    {p:1,ev:"Las Vegas GP 2025",why:"Contact with Hamilton",exp:"2026-11-23"},
-   {p:2,ev:"São Paulo GP 2026",why:"Rejoining the track unsafely, forcing Gasly to brake",exp:"2027-11-08"}]},
+   {p:2,ev:"São Paulo GP 2026",why:"Rejoining the track unsafely, forcing Gasly to brake",exp:"2027-11-08",src:"https://www.gpblog.com/en/news/brazilian-gp-stewards-deliver-verdict-after-dangerous-on-track-incident"}]},
  {n:"Kimi Antonelli",t:"Mercedes",o:[
    {p:1,ev:"Hungarian GP 2026 (qualifying)",why:"Not slowing enough under yellow flags",exp:"2027-07-25"}]},
  {n:"Lewis Hamilton",t:"Ferrari",o:[
@@ -44,7 +50,7 @@ const DRIVERS=[
  {n:"Lance Stroll",t:"Aston Martin",o:[
    {p:1,ev:"Abu Dhabi GP 2025",why:"More than one change of direction defending",exp:"2026-12-07"}]},
  {n:"Max Verstappen",t:"Red Bull",o:[
-   {p:1,ev:"Mexico City GP 2026 (FP2)",why:"Unacceptable driving, contact with Lawson",exp:"2027-10-30"}]},
+   {p:1,ev:"Mexico City GP 2026 (FP2)",why:"Unacceptable driving, contact with Lawson",exp:"2027-10-30",src:"https://www.planetf1.com/news/fia-verstappen-lawson-grid-penalty-mexico-gp"}]},
  {n:"Fernando Alonso",t:"Aston Martin",o:[]},
  {n:"Valtteri Bottas",t:"Cadillac",o:[]},
  {n:"Sergio Pérez",t:"Cadillac",o:[]},

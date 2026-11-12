@@ -29,14 +29,15 @@ header p{margin:6px 0 0;color:var(--muted);max-width:60ch}
 .field label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
 input[type=date],select{font:inherit;font-size:.9rem;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
 button.reset{font:inherit;font-size:.85rem;padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--accent);cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible,.row:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button:focus-visible,input:focus-visible,select:focus-visible,.rowhead:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .summary div{background:var(--surface);padding:12px 14px}
 .summary b{display:block;font-family:var(--display);font-size:1.9rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
 .summary span{font-size:.78rem;color:var(--muted)}
 .list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding:12px 4px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;text-align:left;color:inherit;font:inherit;width:100%}
-.row:hover{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.row{border-bottom:1px solid var(--line)}
+.rowhead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding:12px 4px;border:0;cursor:pointer;background:none;text-align:left;color:inherit;font:inherit;width:100%}
+.rowhead:hover{background:color-mix(in srgb,var(--accent) 5%,transparent)}
 .who{display:flex;align-items:center;gap:8px;min-width:0}
 .chip{width:4px;height:28px;border-radius:2px;flex:none}
 .name{font-family:var(--display);font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -50,10 +51,11 @@ button:focus-visible,input:focus-visible,select:focus-visible,.row:focus-visible
 .meta strong{color:var(--ink);font-weight:600}
 .pill{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:999px;border:1px solid currentColor}
 .s-clear{color:var(--ok)} .s-watch{color:var(--warn)} .s-risk{color:var(--bad)}
-.log{grid-column:1/-1;margin-top:4px;display:flex;flex-direction:column;gap:6px}
+.log{margin:0 4px 12px;display:flex;flex-direction:column;gap:6px}
 .off{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:baseline;font-size:.85rem;padding:8px 10px;background:var(--bg);border-radius:6px}
 .off .p{font-family:var(--mono);font-weight:600}
 .off .exp{font-family:var(--mono);font-size:.75rem;color:var(--muted);white-space:nowrap}
+.off .src{font-size:.75rem;color:var(--accent)}
 .off.gone{opacity:.45;text-decoration:line-through}
 .note{font-size:.8rem;color:var(--muted);max-width:65ch}
 .note a{color:var(--accent)}
