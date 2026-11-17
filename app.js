@@ -45,7 +45,7 @@ function render(){
       <span class="who"><span class="chip" style="background:${TEAMS[r.t]}"></span><span class="name">${r.n}<span class="team">${r.t}</span></span></span>
       <span class="tally"><span class="pts">${r.pts}</span><span class="of"> / ${BAN}</span></span>
       <span class="meter" aria-label="${r.pts} of ${BAN} points">${cells}</span>
-      <span class="meta"><span class="pill s-${r.status}">${label}</span><span>Balance <strong>${r.bal} pts</strong> to a ban</span><span>${nextTxt}</span></span>
+      <span class="meta"><span class="pill s-${r.status}">${label}</span>${r.status==="clear"?"":`<span>Balance <strong>${r.bal} pts</strong> to a ban</span>`}<span>${nextTxt}</span></span>
       ${log}
     </button>`;
   }).join("");
