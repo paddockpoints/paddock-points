@@ -8,6 +8,9 @@
       until you want to tidy up.
    3. Road to F1: update the championship points (3rd value) and keep
       rows in championship order. Licence points are worked out for you.
+      Each row: [name, team, championship pts, banked licence pts, note, FP1 sessions].
+      FP1 sessions = F1 practice outings (100 km or more) in 2025 and 2026.
+      Each is worth 1 licence point, capped at 10. Add 1 after each FP1 run.
    ============================================================ */
 const UPDATED="2026-11-09";
 const UPDATED_NOTE="After São Paulo GP";
@@ -66,30 +69,30 @@ const SL={F2:[40,40,40,30,20,10,8,6,4,3],F3:[30,25,20,15,12,9,7,5,3,2]};
 const SERIES={
  F2:{status:"2026 season in progress, standings after the Baku double-header. Positions and points are provisional until the Abu Dhabi finale.",
   rows:[
-   ["Rafael Câmara","Invicta Racing",207,0,"F1 debut for Haas at São Paulo GP; Haas seat confirmed for 2027"],
-   ["Nikola Tsolov","Campos Racing",200,25,"Banked 25 as 2025 F3 runner-up"],
-   ["Alex Dunne","Rodin Motorsport",189,0,""],
-   ["Gabriele Minì","MP Motorsport",163,0,""],
-   ["Dino Beganovic","DAMS Lucas Oil",137,0,"Ferrari F1 reserve for 2027"],
-   ["Noel León","Campos Racing",133,0,""],
-   ["Martinius Stenshorne","Rodin Motorsport",107,0,""],
-   ["Joshua Dürksen","Invicta Racing",90,0,""],
-   ["Kush Maini","ART Grand Prix",90,0,""],
-   ["Laurens van Hoepen","Trident",90,0,""],
-   ["Tasanapol Inthraphuvasak","ART Grand Prix",71,0,""],
-   ["Ritomo Miyata","Hitech",70,0,""]]},
+   ["Rafael Câmara","Invicta Racing",207,0,"F1 debut for Haas at São Paulo GP; Haas seat confirmed for 2027",1],
+   ["Nikola Tsolov","Campos Racing",200,25,"Banked 25 as 2025 F3 runner-up",1],
+   ["Alex Dunne","Rodin Motorsport",189,0,"",2],
+   ["Gabriele Minì","MP Motorsport",163,0,"",2],
+   ["Dino Beganovic","DAMS Lucas Oil",137,0,"Ferrari F1 reserve for 2027",5],
+   ["Noel León","Campos Racing",133,0,"",0],
+   ["Martinius Stenshorne","Rodin Motorsport",107,0,"",0],
+   ["Joshua Dürksen","Invicta Racing",90,0,"",0],
+   ["Kush Maini","ART Grand Prix",90,0,"",0],
+   ["Laurens van Hoepen","Trident",90,0,"",0],
+   ["Tasanapol Inthraphuvasak","ART Grand Prix",71,0,"",0],
+   ["Ritomo Miyata","Hitech",70,0,"",0]]},
  F3:{status:"2026 season complete. Ugo Ugochukwu won the title by 14 points at the Madring finale in September.",
   rows:[
-   ["Ugo Ugochukwu","Campos Racing",159,0,"2026 F3 champion"],
-   ["Freddie Slater","Trident",145,0,""],
-   ["Tuukka Taponen","MP Motorsport",109,0,"Expected to step up to F2"],
-   ["Taito Kato","ART Grand Prix",105,0,""],
-   ["Théophile Naël","Campos Racing",88,0,""],
-   ["Pedro Clerot","Rodin Motorsport",88,0,""],
-   ["Ernesto Rivera","Campos Racing",87,0,""],
-   ["Brando Badoer","Rodin Motorsport",71,0,""],
-   ["Hiyu Yamakoshi","Van Amersfoort Racing",71,0,""],
-   ["Noah Strømsted","Trident",65,0,""],
-   ["Bruno del Pino","Van Amersfoort Racing",57,0,""],
-   ["Maciej Gładysz","ART Grand Prix",54,0,""]]}
+   ["Ugo Ugochukwu","Campos Racing",159,0,"2026 F3 champion",0],
+   ["Freddie Slater","Trident",145,0,"",2],
+   ["Tuukka Taponen","MP Motorsport",109,0,"Expected to step up to F2",0],
+   ["Taito Kato","ART Grand Prix",105,0,"",0],
+   ["Théophile Naël","Campos Racing",88,0,"",0],
+   ["Pedro Clerot","Rodin Motorsport",88,0,"",0],
+   ["Ernesto Rivera","Campos Racing",87,0,"",0],
+   ["Brando Badoer","Rodin Motorsport",71,0,"",0],
+   ["Hiyu Yamakoshi","Van Amersfoort Racing",71,0,"",0],
+   ["Noah Strømsted","Trident",65,0,"",0],
+   ["Bruno del Pino","Van Amersfoort Racing",57,0,"",0],
+   ["Maciej Gładysz","ART Grand Prix",54,0,"",0]]}
 };

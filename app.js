@@ -59,7 +59,7 @@ let series="F2";
 function renderRoad(){
   const s=SERIES[series];
   $("#seriesStatus").textContent=s.status;
-  const rows=s.rows.map((r,i)=>{const earn=SL[series][i]||0;return {pos:i+1,n:r[0],t:r[1],cp:r[2],bank:r[3],earn,sum:earn+r[3],note:r[4]}});
+  const rows=s.rows.map((r,i)=>{const earn=SL[series][i]||0;const fp1=Math.min(10,r[5]||0);return {pos:i+1,n:r[0],t:r[1],cp:r[2],bank:r[3],fp1,earn,sum:earn+r[3]+fp1,note:r[4]}});
   const clear=rows.filter(r=>r.sum>=40).length;
   $("#rsummary").innerHTML=`
     <div><b>${clear}</b><span>${series==="F3"?"on 40+ points":"on course for 40+"}</span></div>
@@ -68,7 +68,8 @@ function renderRoad(){
   $("#rlist").innerHTML=rows.map(r=>{
     const ok=r.sum>=40, c=ok?"var(--ok)":r.sum>=20?"var(--warn)":"var(--accent)";
     const filled=Math.min(40,r.sum);
-    const cells=Array.from({length:40},(_,i)=>`<i style="${i<Math.min(r.bank,filled)?"background:var(--muted)":i<filled?`background:${c}`:""}"></i>`).join("");
+    const extra=Math.min(r.bank+r.fp1,filled);
+    const cells=Array.from({length:40},(_,i)=>`<i style="${i<extra?"background:var(--muted)":i<filled?`background:${c}`:""}"></i>`).join("");
     const label=ok?(series==="F3"?"Eligible":"On course"):r.sum>0?"Building":"Outside top 10";
     const cls=ok?"s-clear":r.sum>0?"s-watch":"s-risk";
     return `<div class="rk">
@@ -76,7 +77,7 @@ function renderRoad(){
       <span class="who"><span class="name">${r.n}<span class="team">${r.t} · ${r.cp} championship pts</span></span></span>
       <span class="sl"><b>${r.sum}</b><span class="of"> / 40</span></span>
       <span class="meter" aria-label="${r.sum} of 40 licence points">${cells}</span>
-      <span class="meta"><span class="pill ${cls}">${label}</span><span>2026 position worth <strong>${r.earn} pts</strong></span>${r.bank?`<span>Banked <strong>${r.bank}</strong></span>`:""}${r.note?`<span class="tag">${r.note}</span>`:""}</span>
+      <span class="meta"><span class="pill ${cls}">${label}</span><span>2026 position worth <strong>${r.earn} pts</strong></span>${r.bank?`<span>Banked <strong>${r.bank}</strong></span>`:""}${r.fp1?`<span>F1 practice <strong>+${r.fp1}</strong></span>`:""}${r.note?`<span class="tag">${r.note}</span>`:""}</span>
     </div>`}).join("");
 }
 document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{
