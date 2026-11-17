@@ -126,3 +126,7 @@ footer p{margin:0 0 6px}
 .emailbox{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);width:max-content;max-width:100%}
 .emailbox span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 .emailbox strong{font-family:var(--mono);user-select:all;overflow-wrap:anywhere}
+/* Reserve space for content filled in by script, so the page doesn't shift as it loads */
+.updated{display:block;min-height:1.5em;line-height:1.5}
+.summary:empty{min-height:5.75rem}
+.list:empty{min-height:100vh}
