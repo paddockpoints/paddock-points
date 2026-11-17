@@ -130,3 +130,4 @@ footer p{margin:0 0 6px}
 .updated{display:block;min-height:1.5em;line-height:1.5}
 .summary:empty{min-height:5.75rem}
 .list:empty{min-height:100vh}
+@media (max-width:480px){.summary:empty{min-height:7.25rem}}
