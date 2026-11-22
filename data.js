@@ -12,8 +12,8 @@
       FP1 sessions = F1 practice outings (100 km or more) in 2025 and 2026.
       Each is worth 1 licence point, capped at 10. Add 1 after each FP1 run.
    ============================================================ */
-const UPDATED="2026-11-09";
-const UPDATED_NOTE="After São Paulo GP";
+const UPDATED="2026-11-23";
+const UPDATED_NOTE="After Las Vegas GP";
 
 const TEAMS={ "McLaren":"#ff8000","Mercedes":"#27f4d2","Red Bull":"#3671c6","Ferrari":"#e8002d","Williams":"#64c4ff",
   "Racing Bulls":"#6692ff","Aston Martin":"#229971","Haas":"#b6babd","Audi":"#9b0000","Alpine":"#0093cc","Cadillac":"#c9a227"};
